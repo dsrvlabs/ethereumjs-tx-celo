@@ -63,7 +63,26 @@ class Transaction {
       length: 32,
       allowLess: true,
       default: new Buffer([])
-    }, {
+    }, 
+      {
+        name: 'feeCurrency',
+        allowZero: true,
+        length: 20,
+        default: new Buffer([]),
+      },
+      {
+        name: 'gatewayFeeRecipient',
+        allowZero: true,
+        length: 20,
+        default: new Buffer([]),
+      },
+      {
+        name: 'gatewayFee',
+        length: 32,
+        allowLess: true,
+        default: new Buffer([]),
+      },
+    {
       name: 'to',
       allowZero: true,
       length: 20,
@@ -160,7 +179,7 @@ class Transaction {
         items = this.raw
         this.raw = raw
       } else {
-        items = this.raw.slice(0, 6)
+        items = this.raw.slice(0, 9)
       }
     }
 
@@ -295,4 +314,4 @@ class Transaction {
   }
 }
 
-module.exports = Transaction
+module.exports.Transaction = Transaction
