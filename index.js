@@ -67,6 +67,7 @@ class Transaction {
       {
         name: 'feeCurrency',
         length: 20,
+        allowLess: true,
         default: new Buffer([]),
       },
       {
